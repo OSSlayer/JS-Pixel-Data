@@ -11,11 +11,20 @@ Make sure to set the relative file path. Refer to https://www.w3schools.com/html
 
 
 
-To call the function use:
+To call the function you need to wrap it in an async to resolve the promise:
 
  ```
- getPixelData(imgFilePath,w,h)
+ async function pixelData(imgFilePath,w,h){
+   let data = getPixelData(imgFilePath,w,h)
+   // Code using the data
+ }
  ```
+ and then you can run it with:
+ ```
+ pixelData(imgFilePath,w,h)
+ ```
+ 
+ async function can be named whatever you want. All of the code using the pixel data MUST be in the async function. If you try to return the data and use it outside of an async function then the promise will not have resolved and will give you a pending promise instead of the result.
  
  `imgFilePath` - A relative file path to the image
  
