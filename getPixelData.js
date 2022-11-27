@@ -1,14 +1,12 @@
 // Add a new canvas to your html and set canvasId to its id
 const canvasId = 'imageDataCanvas'
-// Default width and height values to use if not given by caller
-const width = 10
-const height = 10
 
-export default function getImagePixelData(imgFile,w,h){
-    if(!w){w = width}
-    if(!h){h = height}
+export default function getPixelData(imgFile,w,h){
     let c = document.getElementById(canvasId)
     var ctx = c.getContext('2d')
+
+    if(!w){w = c.width}
+    if(!h){h = c.height}
 
     // Create new image and get its data
     var img = new Image
@@ -27,6 +25,6 @@ export default function getImagePixelData(imgFile,w,h){
             }
             formattedData.push(pixelData)
         }
-        console.log(formattedData)
+        return formattedData
     }
 }
