@@ -13,7 +13,7 @@ export default function getPixelData(imgFile,w,h){
     img.src = imgFile
     img.onload = function(){
         ctx.drawImage(img, 0, 0)
-        let data = ctx.getImageData(0, 0, width, height).data
+        let data = ctx.getImageData(0, 0, w, h).data
         let formattedData = []
         // Loop through all data and organize into r/g/b/a pairs
         for(let i = 0; i<data.length; i+=4){
